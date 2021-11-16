@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Vue.Js Fundamentales de los Slots</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Vue.js Fundamentales de los SLOTS</h1>
+      <todo-item>
+        Comprar Platanos
+        <template #description>
+            <p>Los platanos tienen mucho potasio</p>
+        </template>
+        <!-- <template #button-text>
+        PRESIONAR
+      </template> -->
+      </todo-item>
+      <todo-item>
+        Comprar Carne
+      </todo-item>
+      <todo-item>
+        Comprar Pollo
+      </todo-item>
+    </div>
+    <script type="text/x-template" id="todo-item-template">
+        <div>
+            <input type="checkbox" v-model="completed">
+            <span :class="{done:completed}">
+            <slot></slot>
+            </span>
+            <slot name="description">
+            </slot>
+            <button> <slot name="button-text">Void</slot> </button>
+        </div>
+    </script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
