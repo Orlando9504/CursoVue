@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="app" class="ui container">
+      <h1>Centro de Notificaciones</h1>
+
+      <!-- Notification Message Markup -->
+      <!-- Types: info, warning, error, success -->
+      <div class="ui error message">
+        <i class="close icon"></i>
+        <div class="header">
+          Tu eres elegible para un premio
+        </div>
+        <p>Ve a la páigna de <b>ofertas especiales</b> para verlo ahora.</p>
+      </div>
+    </div>
+
+    <!-- Se desea crear el siguiente componente -->
+    <!-- 
+    <notification-message type="error" header="Encabezado">
+        <p>Ve a la páigna de <b>ofertas especiales</b> para verlo ahora.</p>
+    </notification-message>
+     -->
+
+    <!-- Template for Notification Message -->
+    <script type="text/x-template" id="notification-message-template"></script>
+
+    <!-- Importando Vue.js -->
+    <script src="https://unpkg.com/vue"></script>
+
+    <!-- Tu codigo JavaScript :) -->
+    <script>
+      new Vue({
+        el: "#app"
+      });
+    </script>
+  </body>
+</html>

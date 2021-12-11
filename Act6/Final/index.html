@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="app" class="ui container">
+      <h1>Centro de Notificaciones</h1>
+
+      <!-- Notification Message Markup -->
+      <!-- Types: info, warning, error, success -->
+
+      <!-- Se desea crear el siguiente componente -->
+
+      <notificaion-message type="error" header="Encabezado">
+        <p>Ve a la páigna de <b>ofertas especiales</b> para verlo ahora.</p>
+      </notificaion-message>
+    </div>
+    <!-- Template for Notification Message -->
+    <script type="text/x-template" id="notification-message-template">
+          <!-- Notification Message Markup -->
+      <!-- Types: info, warning, error, success -->
+      <div :class="['ui', type ,'message']">
+        <i class="close icon"></i>
+        <div class="header">
+          {{header}}
+        </div>
+        <slot></slot>
+      </div>
+    </script>
+
+    <!-- Importando Vue.js -->
+    <script src="https://unpkg.com/vue"></script>
+
+    <!-- Tu codigo JavaScript :) -->
+    <script>
+      // 1. Se crea el componente
+      let notificationMessageComponent = {
+        // 1.1 Se crea la plantilla
+        template: "#notification-message-template",
+        // 1.2 Se crean las propiedades de entrada
+        props: {
+          type: {
+            type: String,
+            default: "info",
+            required: true
+          },
+          header: {
+            type: String,
+            default: "Notification Header"
+          }
+        },
+        data() {
+          return {
+            show=true
+          };
+        },
+        methods: {
+          hide() {
+            this.show = false;
+          }
+        }
+      };
+
+      // 2. Se registra el componente de forma global
+      Vue.component("notificaion-message", notificationMessageComponent);
+
+      new Vue({
+        el: "#app"
+      });
+    </script>
+  </body>
+</html>
